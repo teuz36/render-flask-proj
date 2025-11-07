@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="contact-page">
+  <div class="contact-container">
+
+
+<div class="contact-left">
+  <h1>{{ contact_info.title }}</h1>
+  <p>{{ contact_info.subtitle }}</p>
+  <div class="contact-icons">
+    <p><i class="bi bi-envelope-fill"></i>
+      <a href="mailto:{{ contact_info.email }}">{{ contact_info.email }}</a>
+    </p>
+    <p><i class="bi bi-facebook"></i>
+      <a href="{{ contact_info.facebook }}" target="_blank">Mateuz</a>
+    </p>
+    <p><i class="bi bi-instagram"></i>
+      <a href="{{ contact_info.instagram }}" target="_blank">@_mateuzz36</a>
+    </p>
+    <p><i class="bi bi-linkedin"></i>
+      <a href="{{ contact_info.linkedin }}" target="_blank">Mateuz Andrei Caspillo</a>
+    </p>
+    <p><i class="bi bi-telephone-fill"></i> {{ contact_info.phone }}</p>
+  </div>
+</div>
+
+<div class="contact-right">
+  <form 
+    action="{{ url_for('contact') }}" 
+    method="POST" 
+    class="contact-form">
+
+    <label for="name">Your Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Enter your name"
+      required
+    >
+
+    <label for="email">Your Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Enter your email"
+      required
+    >
+
+    <label for="message">Your Message</label>
+    <textarea
+      id="message"
+      name="message"
+      placeholder="Write your message"
+      required
+    ></textarea>
+
+    <button type="submit" class="send-btn">Send Message</button>
+  </form>
+</div>
+
+  </div>
+</section>
+{% endblock %}

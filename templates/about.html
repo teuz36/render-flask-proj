@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="about-page">
+  <div class="about-container">
+
+    <!-- ABOUT HEADER -->
+    <div class="about-header">
+      <img src="{{ url_for('static', filename='lures.jpg') }}" alt="Mateuz Photo">
+      <div class="about-intro">
+        <h1>{{ about_info.title }}</h1>
+        <p>{{ about_info.content }}</p>
+      </div>
+    </div>
+
+    <!-- BOXES BELOW -->
+    <div class="about-grid">
+
+      <div class="about-block">
+        <h2>{{ about_info.more_title }}</h2>
+        <ul>
+          <li><strong>Programming Languages:</strong> Python, C#, Java</li>
+          <li><strong>Tools:</strong> Figma, Canva, Excel, HTML</li>
+        </ul>
+      </div>
+
+      <div class="about-block">
+        <h2>Other Skills</h2>
+        <ul>
+          {% for project in about_info.projects %}
+          <li>{{ project }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="about-block">
+        <h2>Seminars Attended</h2>
+        <ul>
+          {% for item in about_info.things_love %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="about-block">
+        <h2>Hobbies</h2>
+        <ul>
+          {% for item in about_info.things_fav %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="about-block">
+        <h2>Achievements</h2>
+        <ul>
+          {% for item in about_info.things_award %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="certifications-block">
+  <h2>Certifications</h2>
+  <ul>
+    {% for cert in about_info.things_certifications %}
+    <li>{{ cert }}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

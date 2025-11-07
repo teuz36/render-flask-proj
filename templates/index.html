@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+    <div class="hero-text">
+        <p class="intro">{{ profile.hero_intro }}</p>
+        <h1>{{ profile.hero_highlight }}</h1>
+        <p>{{ profile.about }}</p>
+        <a href="about" class="scroll-btn">{{ profile.hero_cta }}</a>
+    </div>
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='lures.jpg') }}" alt="Mateuz Andrei Caspillo">
+    </div>
+</section>
+{% endblock %}

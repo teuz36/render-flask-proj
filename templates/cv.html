@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="cv-page">
+  <div class="cv-container">
+    <div class="cv-header">
+      <img src="{{ url_for('static', filename='resume.jpg') }}" alt="{{ info.name }}">
+      <div>
+        <h1>{{ info.name }}</h1>
+        <h3>{{ info.title }}</h3>
+      </div>
+    </div>
+
+    <hr>
+
+    <section class="about">
+      <h2>About Me</h2>
+      <p>{{ info.objective }}</p>
+    </section>
+
+    <div class="cv-body">
+      <!-- LEFT COLUMN -->
+      <div class="left-column">
+        <h3>Education</h3>
+        {% for edu in info.education %}
+        <div class="section-item">
+          <h4>{{ edu.school }}</h4>
+          {% if edu.major %}<p><strong>Major:</strong> {{ edu.major }}</p>{% endif %}
+          <p><strong>Year:</strong> {{ edu.year }}</p>
+        </div>
+        {% endfor %}
+
+        <h3>Contact</h3>
+        <div class="contact-info">
+          {% for c in info.contacts %}
+          <p><i class="bi {{ c.icon }}"></i> 
+            {% if c.url %}
+              <a href="{{ c.url }}" target="_blank">{{ c.label }}</a>
+            {% else %}
+              {{ c.label }}
+            {% endif %}
+          </p>
+          {% endfor %}
+        </div>
+
+        <h3>Languages</h3>
+        <ul>
+          {% for lang in info.languages %}
+          <li>{{ lang }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right-column">
+        <h3>Work Experiences</h3>
+        {% for exp in info.experiences %}
+        <div class="section-item">
+          <p><strong>{{ exp.role }}</strong></p>
+          <p>{{ exp.place }} ({{ exp.year }})</p>
+        </div>
+        {% endfor %}
+
+<h3>Skills</h3>
+<div class="skills-section">
+  {% for category, items in info.skills.items() %}
+    <p><strong>{{ category }}:</strong></p>
+    <ul>
+      {% for skill in items %}
+        <li>{{ skill }}</li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</div>
+
+<div class="section-item">
+  <h2>Certifications</h2>
+  {% for cert in info.certifications %}
+  <p>• {{ cert }}</p>
+  {% endfor %}
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+<div class="cv-download-section">
+  <a href="{{ url_for('download_cv') }}" class="cv-download-btn">
+    <i class="bi bi-download"></i> Download CV
+  </a>
+</div>
+{% endblock %}
