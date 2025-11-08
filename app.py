@@ -29,12 +29,12 @@ def about():
             "For the tools that I am skilled at is Figma, Canva, Excel, and HTML."
 
         ),
-        "projects_title": "Projects",
-        "projects": [
+        "other_title": "Other Skills",
+        "other": [
             "Time Management",
             "Adaptability",
-            "Pagiging Kupal",
-            "Teamwork",
+            "Hardworking",
+            "Collaboration",
             "Event Management System"
         ],
         "things_love": [
