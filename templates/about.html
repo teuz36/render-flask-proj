@@ -4,7 +4,6 @@
 <section class="about-page">
   <div class="about-container">
 
-    <!-- ABOUT HEADER -->
     <div class="about-header">
       <img src="{{ url_for('static', filename='lures.jpg') }}" alt="Mateuz Photo">
       <div class="about-intro">
@@ -13,7 +12,6 @@
       </div>
     </div>
 
-    <!-- BOXES BELOW -->
     <div class="about-grid">
 
       <div class="about-block">
@@ -27,7 +25,7 @@
       <div class="about-block">
         <h2>Other Skills</h2>
         <ul>
-          {% for project in about_info.projects %}
+          {% for project in about_info.other %}
           <li>{{ project }}</li>
           {% endfor %}
         </ul>
